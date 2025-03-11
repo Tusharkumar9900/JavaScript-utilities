@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+.container {
+    background: white;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.strength-meter {
+    height: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+}
+
+.weak {
+    width: 33%;
+    background: red;
+}
+
+.medium {
+    width: 66%;
+    background: orange;
+}
+
+.strong {
+    width: 100%;
+    background: green;
+}
+
+p {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.match {
+    color: green;
+}
+
+.mismatch {
+    color: red;
+}
