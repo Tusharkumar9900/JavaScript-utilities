@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Meeting Room Scheduler</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-calendar-check"></i>
+                <h2>MeetSpace</h2>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rooms.html">
+                            <i class="fas fa-door-open"></i>
+                            <span>Rooms</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teams.html">
+                            <i class="fas fa-users"></i>
+                            <span>Teams</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search rooms...">
+                </div>
+                <div class="user-menu">
+                    <button class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="user-info">
+                        <i class="fas fa-user-circle fa-2x"></i>
+                        <span>Tushar Kumar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Welcome Section -->
+                <div class="welcome-section">
+                    <div class="welcome-text">
+                        <h1>Welcome back, Tushar!</h1>
+                        <p>Book a meeting room or check your upcoming meetings</p>
+                    </div>
+                    <button class="btn-primary" id="quickBookBtn">
+                        <i class="fas fa-calendar-plus"></i>
+                        Quick Book
+                    </button>
+                </div>
+
+                <!-- Dashboard Bottom -->
+                <div class="dashboard-bottom">
+                    <!-- Left Column -->
+                    <div class="dashboard-left">
+                        <!-- Available Rooms -->
+                        <section class="rooms-section">
+                            <div class="section-header">
+                                <h2>Available Rooms</h2>
+                                <a href="rooms.html" class="view-all">View All</a>
+                            </div>
+                            <div class="room-cards" id="roomCards">
+                                <!-- Room cards will be dynamically added here -->
+                            </div>
+                        </section>
+
+                        <!-- Calendar Section -->
+                        <section class="calendar-section">
+                            <div class="section-header">
+                                <h2>Calendar</h2>
+                                <a href="schedule.html" class="view-all">View Schedule</a>
+                            </div>
+                            <div id="calendar"></div>
+                        </section>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="dashboard-right">
+                        <!-- Upcoming Meetings -->
+                        <section class="meetings-section">
+                            <div class="section-header">
+                                <h2>Upcoming Meetings</h2>
+                                <a href="schedule.html" class="view-all">View All</a>
+                            </div>
+                            <div class="meetings-list" id="meetingsList">
+                                <!-- Meeting items will be dynamically added here -->
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Booking Modal -->
+        <div class="modal" id="bookingModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Quick Book a Room</h2>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="roomSelect">Select Room</label>
+                            <select id="roomSelect" required>
+                                <option value="">Choose a room...</option>
+                                <option value="1">Conference Room A</option>
+                                <option value="2">Meeting Room B</option>
+                                <option value="3">Board Room</option>
+                                <option value="4">Huddle Space</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="meetingTitle">Meeting Title</label>
+                            <input type="text" id="meetingTitle" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="startTime">Start Time</label>
+                                <input type="datetime-local" id="startTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endTime">End Time</label>
+                                <input type="datetime-local" id="endTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="attendees">Attendees</label>
+                            <input type="text" id="attendees" placeholder="Enter email addresses">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" id="cancelBooking">Cancel</button>
+                            <button type="submit" class="btn-primary">Book Room</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 

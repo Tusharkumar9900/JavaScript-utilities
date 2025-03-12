@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - Meeting Room Scheduler</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-calendar-check"></i>
+                <h2>MeetSpace</h2>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="rooms.html">
+                            <i class="fas fa-door-open"></i>
+                            <span>Rooms</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teams.html">
+                            <i class="fas fa-users"></i>
+                            <span>Teams</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search rooms...">
+                </div>
+                <div class="user-menu">
+                    <button class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="user-info">
+                        <i class="fas fa-user-circle fa-2x"></i>
+                        <span>Tushar Kumar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rooms Content -->
+            <div class="rooms-content">
+                <div class="section-header">
+                    <h1>Meeting Rooms</h1>
+                    <button class="btn-primary" id="addRoomBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Room
+                    </button>
+                </div>
+
+                <!-- Filters -->
+                <div class="rooms-filters">
+                    <div class="filter-group">
+                        <select id="capacityFilter" class="select-filter">
+                            <option value="">Capacity</option>
+                            <option value="1-4">1-4 People</option>
+                            <option value="5-8">5-8 People</option>
+                            <option value="9-12">9-12 People</option>
+                            <option value="13+">13+ People</option>
+                        </select>
+                        <select id="facilityFilter" class="select-filter">
+                            <option value="">Facilities</option>
+                            <option value="projector">Projector</option>
+                            <option value="whiteboard">Whiteboard</option>
+                            <option value="videoconf">Video Conference</option>
+                            <option value="tv">TV Screen</option>
+                        </select>
+                        <select id="statusFilter" class="select-filter">
+                            <option value="">Status</option>
+                            <option value="available">Available</option>
+                            <option value="busy">Busy</option>
+                            <option value="maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="btn-icon active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="btn-icon" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rooms Grid -->
+                <div class="rooms-grid" id="roomsContainer">
+                    <!-- Room cards will be dynamically added here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Add Room Modal -->
+        <div class="modal" id="roomModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add New Room</h2>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="roomForm">
+                        <div class="form-group">
+                            <label for="roomName">Room Name</label>
+                            <input type="text" id="roomName" name="roomName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomCapacity">Capacity</label>
+                            <input type="number" id="roomCapacity" name="roomCapacity" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Facilities</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="facilities" value="projector"> Projector
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="facilities" value="whiteboard"> Whiteboard
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="facilities" value="videoconf"> Video Conference
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="facilities" value="tv"> TV Screen
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomDescription">Description</label>
+                            <textarea id="roomDescription" name="roomDescription" rows="3"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" id="cancelRoom">Cancel</button>
+                            <button type="submit" class="btn-primary">Add Room</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 

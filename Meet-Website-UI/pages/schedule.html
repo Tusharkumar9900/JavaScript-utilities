@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Meeting Room Scheduler</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-calendar-check"></i>
+                <h2>MeetSpace</h2>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rooms.html">
+                            <i class="fas fa-door-open"></i>
+                            Rooms
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="schedule.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teams.html">
+                            <i class="fas fa-users"></i>
+                            Teams
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            Analytics
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search schedules...">
+                </div>
+                <div class="user-menu">
+                    <button class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="user-info">
+                        <i class="fas fa-user-circle fa-2x"></i>
+                        <span>Tushar KUmar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Content -->
+            <div class="schedule-content">
+                <div class="schedule-header">
+                    <h1>Schedule Management</h1>
+                    <button class="btn-primary" id="newBookingBtn">
+                        <i class="fas fa-plus"></i>
+                        New Booking
+                    </button>
+                </div>
+
+                <div class="schedule-tools">
+                    <div class="view-options">
+                        <button class="btn-secondary active" data-view="month">Month</button>
+                        <button class="btn-secondary" data-view="week">Week</button>
+                        <button class="btn-secondary" data-view="day">Day</button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="roomFilter" class="select-filter">
+                            <option value="">All Rooms</option>
+                            <option value="conference">Conference Rooms</option>
+                            <option value="meeting">Meeting Rooms</option>
+                            <option value="huddle">Huddle Spaces</option>
+                        </select>
+                        <select id="teamFilter" class="select-filter">
+                            <option value="">All Teams</option>
+                            <option value="development">Development</option>
+                            <option value="design">Design</option>
+                            <option value="marketing">Marketing</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calendar-section">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Booking Modal -->
+        <div class="modal" id="bookingModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>New Booking</h2>
+                    <button class="close-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="meetingTitle">Meeting Title</label>
+                            <input type="text" id="meetingTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomSelect">Room</label>
+                            <select id="roomSelect" required>
+                                <option value="">Select a room</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="startTime">Start Time</label>
+                                <input type="datetime-local" id="startTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endTime">End Time</label>
+                                <input type="datetime-local" id="endTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="attendees">Attendees</label>
+                            <input type="text" id="attendees" placeholder="Enter email addresses">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" rows="3"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" id="cancelBooking">Cancel</button>
+                            <button type="submit" class="btn-primary">Create Booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 

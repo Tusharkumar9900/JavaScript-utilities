@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Meeting Room Scheduler</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-calendar-check"></i>
+                <h2>MeetSpace</h2>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rooms.html">
+                            <i class="fas fa-door-open"></i>
+                            <span>Rooms</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teams.html">
+                            <i class="fas fa-users"></i>
+                            <span>Teams</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="analytics.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search analytics...">
+                </div>
+                <div class="user-menu">
+                    <button class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="user-info">
+                        <i class="fas fa-user-circle fa-2x"></i>
+                        <span>Tushar Kumar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Content -->
+            <div class="analytics-content">
+                <div class="section-header">
+                    <h1>Analytics Dashboard</h1>
+                    <div class="date-filter">
+                        <select id="timeRange">
+                            <option value="7">Last 7 days</option>
+                            <option value="30">Last 30 days</option>
+                            <option value="90">Last 90 days</option>
+                            <option value="365">Last year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Analytics Grid -->
+                <div class="analytics-grid">
+                    <!-- Summary Cards -->
+                    <div class="analytics-card">
+                        <h3>Total Bookings</h3>
+                        <div class="analytics-value">245</div>
+                        <div class="analytics-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12% vs last period</span>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Room Utilization</h3>
+                        <div class="analytics-value">78%</div>
+                        <div class="analytics-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5% vs last period</span>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Average Meeting Duration</h3>
+                        <div class="analytics-value">1.5h</div>
+                        <div class="analytics-trend negative">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>3% vs last period</span>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Peak Usage Time</h3>
+                        <div class="analytics-value">2PM</div>
+                        <div class="analytics-trend neutral">
+                            <i class="fas fa-minus"></i>
+                            <span>No change</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h3>Room Usage Over Time</h3>
+                        <div class="chart" id="usageChart">
+                            <!-- Chart will be rendered here -->
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Popular Meeting Times</h3>
+                        <div class="chart" id="timeChart">
+                            <!-- Chart will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 
