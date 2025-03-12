@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Email Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Live Email Validation</h2>
-        <div class="input-group">
-            <input type="email" id="email" placeholder="Enter your email" oninput="validateEmail()">
-            <span id="status-icon">⚪</span>
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-envelope"></i>
+                <h2>Email Validation</h2>
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="Enter your email address" oninput="validateEmail()">
+                        <span id="status-icon" class="icon"></span>
+                    </div>
+                </div>
+                <p id="message"></p>
+            </div>
         </div>
-        <p id="message"></p>
     </div>
 
     <script src="main.js"></script>
