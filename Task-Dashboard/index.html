@@ -30,31 +30,63 @@
     <div class="container">
         <header>
             <h1>Task Dashboard</h1>
-            <button id="theme-toggle" aria-label="Toggle theme">
+            <button class="theme-toggle" id="theme-toggle">
                 <i class="fas fa-moon"></i>
             </button>
         </header>
 
-        <main>
-            <div class="task-input-container">
-                <input type="text" id="task-input" placeholder="Add a new task..." aria-label="New task input">
-                <button id="add-task" aria-label="Add task">
-                    <i class="fas fa-plus"></i>
-                </button>
+        <div class="task-input-container">
+            <input type="text" id="task-input" placeholder="Add a new task...">
+            <button id="add-task">
+                <i class="fas fa-plus"></i>
+                <span>Add Task</span>
+            </button>
+        </div>
+
+        <div class="task-stats">
+            <span>Total Tasks: <span id="total-tasks">0</span></span>
+            <span>Completed: <span id="completed-tasks">0</span></span>
+        </div>
+
+        <ul id="tasks-list" class="tasks-list"></ul>
+    </div>
+
+    <!-- Task Details Panel -->
+    <div id="task-details" class="task-details">
+        <div class="task-details-header">
+            <h2 id="task-details-title"></h2>
+            <button id="close-details" class="close-details">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="task-details-content">
+            <!-- Subtasks Section -->
+            <div class="subtasks-section">
+                <h3>Subtasks</h3>
+                <div class="subtask-input-container">
+                    <input type="text" id="subtask-input" placeholder="Add a subtask...">
+                    <button id="add-subtask">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <ul id="subtasks-list" class="subtasks-list"></ul>
             </div>
 
-            <div class="tasks-container">
-                <div class="tasks-header">
-                    <h2>Your Tasks</h2>
-                    <div class="tasks-stats">
-                        <span id="total-tasks">0</span> total
-                        <span id="completed-tasks">0</span> completed
-                    </div>
+            <!-- Notes Section -->
+            <div class="notes-section">
+                <h3>Notes</h3>
+                <div class="note-input-container">
+                    <textarea id="note-input" placeholder="Add a note..."></textarea>
+                    <button id="add-note">
+                        <i class="fas fa-plus"></i>
+                    </button>
                 </div>
-                <ul id="tasks-list" class="tasks-list"></ul>
+                <ul id="notes-list" class="notes-list"></ul>
             </div>
-        </main>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html> 
