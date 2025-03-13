@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Drag & Drop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>File Upload</h1>
+        
+        <div class="upload-container">
+            <div class="upload-area" id="dropZone">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h2>Drag & Drop Files Here</h2>
+                    <p>or</p>
+                    <label for="fileInput" class="upload-button">Browse Files</label>
+                    <input type="file" id="fileInput" multiple hidden>
+                </div>
+            </div>
+
+            <div class="file-list" id="fileList">
+                <h2>Uploaded Files</h2>
+                <div class="empty-state">
+                    <i class="fas fa-folder-open"></i>
+                    <p>No files uploaded yet</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Files:</span>
+                <span class="stat-value" id="fileCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Size:</span>
+                <span class="stat-value" id="totalSize">0 MB</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
